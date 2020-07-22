@@ -1,1 +1,1 @@
-# -10-Days-of-Javascript-HackeRrank
+# 10-Days-of-Javascript-HackerRank
