@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            width: 96px;
+            height: 48px;
+            font-size: 24px;
+        }
+    </style>
+    <title>Button</title>
+</head>
+
+<body>
+    <button id='btn'>0</button>
+    <script>
+        let value = 0;
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', () => {
+            value++;
+            document.getElementById('btn').innerHTML = value;
+        })
+    </script>
+</body>
+
+</html>
