@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 33%;
+        }
+
+        #res {
+            background-color: lightgray;
+            border: 1px solid black;
+            height: 48px;
+            font-size: 20px;
+        }
+
+        #btns button {
+            width: 25%;
+            height: 36px;
+            font-size: 18px;
+            margin: 0px;
+            float: left;
+        }
+
+        #btn0,
+        #btn1 {
+            background-color: lightgreen;
+            color: brown;
+        }
+
+        #btnClr,
+        #btnEql {
+            background-color: darkgreen;
+            color: white;
+        }
+
+        #btnSum,
+        #btnSub,
+        #btnMul,
+        #btnDiv {
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="res"></div>
+        <div id="btns">
+            <button id="btn0">0</button>
+            <button id="btn1">1</button>
+            <button id="btnClr">C</button>
+            <button id="btnEql">=</button>
+            <button id="btnSum">+</button>
+            <button id="btnSub">-</button>
+            <button id="btnMul">*</button>
+            <button id="btnDiv">/</button>
+        </div>
+    </div>
+    <script>
+        const btn0 = document.getElementById('btn0');
+        const btn1 = document.getElementById('btn1');
+        const btnClr = document.getElementById('btnClr');
+        const btnEql = document.getElementById('btnEql');
+        const btnSum = document.getElementById('btnSum');
+        const btnSub = document.getElementById('btnSub');
+        const btnMul = document.getElementById('btnMul');
+        const btnDiv = document.getElementById('btnDiv');
+
+        btnClr.addEventListener('click', function () {
+            document.getElementById('res').innerHTML = '';
+            value = '';
+        })
+
+        let value = '';
+
+        btn0.addEventListener('click', function () {
+            value = value + '0';
+            document.getElementById('res').innerHTML = value;
+        })
+        btn1.addEventListener('click', function () {
+            value = value + '1';
+            document.getElementById('res').innerHTML = value;
+        })
+        btnSum.addEventListener('click', function () {
+            value = value + '+';
+            document.getElementById('res').innerHTML = value;
+        })
+        btnSub.addEventListener('click', function () {
+            value = value + '-';
+            document.getElementById('res').innerHTML = value;
+        })
+        btnMul.addEventListener('click', function () {
+            value = value + '*';
+            document.getElementById('res').innerHTML = value;
+        })
+        btnDiv.addEventListener('click', function () {
+            value = value + '/';
+            document.getElementById('res').innerHTML = value;
+        })
+
+        btnEql.addEventListener('click', function () {
+            switch (true) {
+                case value.includes('+'):
+                    let sum = value.split('+')
+                    let resSum = parseInt(sum[0], 2) + parseInt(sum[1], 2)
+                    let resSumBi = resSum.toString(2);
+                    document.getElementById('res').innerHTML = resSumBi;
+                    break;
+                case value.includes('-'):
+                    let res = value.split('-');
+                    let resRes = parseInt(res[0], 2) - parseInt(res[1], 2)
+                    let resResBi = resRes.toString(2);
+                    document.getElementById('res').innerHTML = resResBi;
+                    break;
+                case value.includes('*'):
+                    let mul = value.split('*')
+                    let resMul = parseInt(mul[0], 2) * parseInt(mul[1], 2)
+                    let resMulBi = resMul.toString(2);
+                    document.getElementById('res').innerHTML = resMulBi;
+                    break;
+                case value.includes('/'):
+                    let div = value.split('/');
+                    let resDiv = parseInt(div[0], 2) / parseInt(div[1], 2)
+                    let resDivBi = resDiv.toString(2);
+                    document.getElementById('res').innerHTML = resDivBi;
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>
